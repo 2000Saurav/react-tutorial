@@ -1,0 +1,27 @@
+{
+  "name": "01_basic_tutorial",
+  "version": "1.0.0",
+  "description": "I am learning react and this is my first tutorial. In this i learn about the npm.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": " (https://github.com/2000Saurav/react-tutorial.git)"
+  },
+  "keywords": [
+    "react",
+    "react-tutorial"
+  ],
+  "author": "Saurav Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

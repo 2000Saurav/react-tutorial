@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 // const heading = React.createElement( "h1", {id: "heading", xyz: "xyz"},  "Hello World from React"); 
 // console.log(heading);
 // first we create variable heading and then we use React.createElement to create a react element. react element method take three arguments
