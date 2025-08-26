@@ -1,23 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-function Header() {
-    return (
-        <div className="header">
-            <div className="logo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_KugauozA01RuCJ1GIAJmbztKj4d_YSlBvLehtjyvcMeG6CN_Z-TUq0&s" alt="logo image" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Cart</a></li>
-                </ul>
-            </div>
-        </div>
-    )
-}
+import { useState } from "react";
 const restList = [
     {
         info: {
@@ -1781,6 +1764,26 @@ const restList = [
         }
     }
 ];
+
+
+function Header() {
+    return (
+        <div className="header">
+            <div className="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_KugauozA01RuCJ1GIAJmbztKj4d_YSlBvLehtjyvcMeG6CN_Z-TUq0&s" alt="logo image" />
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    )
+}
+
 function RestaurantCard(props) {
     const { restCard } = props;
     return (
@@ -1795,15 +1798,21 @@ function RestaurantCard(props) {
 }
 
 function Body() {
+    const [filterRestList, setFilterRestList] = useState(restList);
+
     return (
         <div className="body">
             <div className="search-bar">
                 <input type="text" placeholder="Search for restaurants and food" />
                 <button className="search-button">Search</button>
             </div>
+
+            <div className="filter-buttons"> 
+            <button onClick={()=> {const filtered= filterRestList.filter((restaurant)=>{return restaurant.info.avgRating > 4.4}); setFilterRestList(filtered) } }>Filetered Buttons</button>
+            </div>
             <div className="restaurant-list">
                 {
-                    restList.map((restaurant) => {
+                    filterRestList.map((restaurant) => {
                         return <RestaurantCard key={restaurant.info.id} restCard={restaurant} />
                     })
                 }
